@@ -1,6 +1,6 @@
 # SAW View 
 
-View module for Nodejs > 6.2 that also support the lovely Blade templating syntax of Laravel framework.
+View module for Nodejs >= 6 that also support the lovely Blade templating syntax of Laravel framework.
 
 ## Install
 
