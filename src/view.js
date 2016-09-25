@@ -1,6 +1,6 @@
 "use strict";
 
-import helpers from "saw-support/helpers";
+import {object_merge} from "saw-support/lib/helpers";
 
 var $factory,
     $engine = new WeakMap(),
@@ -19,8 +19,8 @@ class View {
 
     async render() {
         var data = {};
-        helpers.object_merge(data, $data.get(this));
-        helpers.object_merge(data, $factory.shared);
+        object_merge(data, $data.get(this));
+        object_merge(data, $factory.shared);
 
         try {
             var content = await ($engine.get(this)).get($path.get(this), data);

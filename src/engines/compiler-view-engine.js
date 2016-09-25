@@ -2,7 +2,7 @@
 
 import fs from "fs";
 import vm from "vm";
-import helpers from "saw-support/helpers";
+import {async} from "saw-support/lib/helpers";
 import ViewEngine from "./view-engine";
 
 var $factory,
@@ -11,7 +11,7 @@ var $factory,
 async function evaluate(factory, compiled, data) {
     var sandbox = data;
     sandbox["$factory"] = factory;
-    sandbox["$async"] = helpers.async;
+    sandbox["$async"] = async;
     sandbox["$defined_vars"] = data;
 
     return await vm.runInNewContext(compiled, sandbox, {displayErrors: true});
